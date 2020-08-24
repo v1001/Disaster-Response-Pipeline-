@@ -42,7 +42,7 @@ Natural language needs to be converted to a format, which machine learning algor
 First the data was split into **training** and **testing** data.
 The data has multiple categories, hence a multi-output classifier was implemented.
 Following base classifiers were examined:
-1. Multilayer perceptron (MLPC)
+1. Multilayer perceptron (MLP)
 2. Random Forest (RF)
 3. Multinomial Naive Bayes (NB)
 4. Linear Support Vector Classifier (SVC)
@@ -63,7 +63,7 @@ Multinomial NB | 0.647583 | 29.8 | 9.396868
 
 #### 3.4. Cross-validation and grid search for MLPC
 
-MLCP classifier was first considered to be the most promising, because intuitively neural networks are considered to be the best for natural language processing. The first results were very disappointing: the classifier was overfitting, didn't do well with minority classes and took extremely long to train. Several steps were done to find optimal parameters:
+MLP classifier was first considered to be the most promising, because intuitively neural networks are considered to be the best for natural language processing. The first results were very disappointing: the classifier was overfitting, didn't do well with minority classes and took extremely long to train. Several steps were done to find optimal parameters:
 * grid search for the best activation function and solver combination (relu, adam)
 * grid search for the optimal initial learning rate and tolerance (0.001, 0.01)
 * grid search for the optimal hidden layer structure (single layer, 55 neurons)
@@ -76,7 +76,7 @@ Early stopping was activated and validation fraction set to 10%. With this confi
 ##### Neural networks for NLP
 After studying literature about NLP it was obvious, that MLCP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
 ##### Variations in pipelines
-It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance. Word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly. Removing stop words have shown almost no effect for all classifiers except MLPC, which had slight performance increase when keeping the stop words.
+It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance. Word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly. Removing stop words have shown almost no effect for all classifiers except MLP, which had slight performance increase when keeping the stop words.
 ##### Using only nouns
 Count vectorizer produces a sparse matrix with over 25000 parameters. This dimension increases in factorial ration if n-grams are added for word embeddings. It might be useful to reduce the number of individual words for some cases. For the text corpus in this project the vocabulary size including 2-word n-grams was almost 200000.
 
