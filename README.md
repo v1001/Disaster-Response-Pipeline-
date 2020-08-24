@@ -39,9 +39,20 @@ Natural language needs to be converted to a format, which machine learning algor
 6. As option word n-grams were used with *CountVectorizer* to account for word embeddings.
 7. A custom transformer *NounsExtractor* was implemented with the goal to keep only nouns from the messages.
 
-### 3.2. Training, cross-validation, hyperparameter optimization
-To test different models and parameters a custom function *build_cv* was implemented. Following classifiers were examined in this project:
-1. Multilayer perceptron
-2. Random Forest
-3. Multinomial Naive Bayes
-4. Linear Support Vector Classifier
+#### 3.2. Training, cross-validation, hyperparameter optimization
+The data has multiple categories, hence a multi-output classifier was implemented.
+Following base classifiers were examined:
+1. Multilayer perceptron (MLPC)
+2. Random Forest (RF)
+3. Multinomial Naive Bayes (NB)
+4. Linear Support Vector Classifier (SVC)
+To test different models and parameters a custom function *build_cv* was implemented. 
+Cross-validation was performed for MLPC using grid search. Optimal parameters were applied to continue training. Training multi-output MLPC classifier is essentially training multiple classifiers one for each output. For this reason only one category "related" was used to perform grid search.
+
+#### 3.3. Comparing classifiers
+Classifier| ROC AUC | size, MB | training time, s
+------------ | ------------- | ------------- | -------------
+Linear SVC | 0.703731 | 37.5 | 36.756851
+MLPC | 0.659678 | 1590.0 | 1393.571046
+RF | 0.580703 | 1020.0 | 532.916047
+Multinomial NB | 0.647583 | 29.8 | 9.396868
