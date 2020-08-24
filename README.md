@@ -65,8 +65,9 @@ MLCP classifier was first considered to be the most promising, because intuitive
 * grid search for the best activation function and solver combination (relu, adam)
 * grid search for the optimal initial learning rate and tolerance (0.001, 0.01)
 * grid search for the optimal hidden layer structure (single layer, 55 neurons)
-* several settings for *CountVectorizer* and *TFIDFTransformer* were tested
-* configurations with and without TFIDF were tested
+* several settings for *CountVectorizer* were tested (keeping stop words improved the results)
+* configurations with and without TFIDF as well as different parameters were tested (not using TFIDF improved the results)
+
 Early stopping was activated and validation fraction set to 10%. With this configuration the performance increased, but not for categories with strong imbalance. To compensate for imbalance a custom function *padToBalance* was introduced. This function manipulated training data by cloning the minority data points several time, until their proportion reached the desired level (25%).
 
 After studying literature about NLP it was obvious, that MLCP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
