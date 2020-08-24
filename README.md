@@ -106,13 +106,13 @@ Although the proportion of related messages is high and each related message has
 
 ![Number of message categories distribution](/images/CategoriesMeanHistogram.PNG)
 
-To deal with imbalance following measures were applied:
+###### To deal with imbalance following measures were applied:
 1. To validate the performance of ML pipeline following scoring metrics were applied:
     * precision (true positives / (true positives + false positives) )
     * recall (true positives  / (true positives + false negatives) )
     * f1 score (2 * (precision * recall) / (precision + recall) )
     * area under the reciever operating characteristic curve (ROC AUC) https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc
-2. To ensure that the influence of minority class is not shown in metrics macro averaging was applied to calculate composite score for every category as well as the overall score for a classifier. Macro averaging assigns equal weights to all classes so that if the score of a minority class has same impact as that of the majority class.
+2. To ensure that the influence of minority classes or categories is not shown in metrics macro averaging was applied to calculate composite score for every category as well as the overall score for a classifier. Macro averaging assigns equal weights to all classes so that if the score of a minority class has same impact as that of the majority class.
 3. For MLP classifier upsampling of minority class was applied on training data.
 
 ### 5. Further thoughts on disaster response pipeline
