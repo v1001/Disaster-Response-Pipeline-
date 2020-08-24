@@ -73,7 +73,7 @@ Early stopping was activated and validation fraction set to 10%. With this confi
 
 #### 3.5. Further investigations
 ##### Neural networks for NLP
-After studying literature about NLP it was obvious, that MLP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
+After studying literature about NLP it was obvious, that MLP is not the best neural network for the task. LSTM or RNN are preferred because they naturally have the capacity to store information about previously processed information and therefore can capture context of the message.
 ##### Variations in pipelines
 It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance. Word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly. Removing stop words have shown almost no effect for all classifiers except MLP, which had slight performance increase when keeping the stop words.
 ##### Using only nouns
