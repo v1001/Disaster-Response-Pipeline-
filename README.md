@@ -14,8 +14,10 @@
 3. If you are running the app localy go to http://0.0.0.0:3001/
 
 ### 1. Dataset
-The dataset for this project comes from FigureEight and can be downloaded here: https://appen.com/datasets/combined-disaster-response-data/
-The Overview states that "This dataset contains 30,000 messages drawn from events including an earthquake in Haiti in 2010, an earthquake in Chile in 2010, floods in Pakistan in 2010, super-storm Sandy in the U.S.A. in 2012, and news articles spanning a large number of years and 100s of different disasters."
+The dataset used for this project can be downloaded here: https://appen.com/datasets/combined-disaster-response-data/
+
+The Overview states:
+"This dataset contains 30,000 messages drawn from events including an earthquake in Haiti in 2010, an earthquake in Chile in 2010, floods in Pakistan in 2010, super-storm Sandy in the U.S.A. in 2012, and news articles spanning a large number of years and 100s of different disasters."
 
 The dataset consists of twitter messages (text data fields for original language and english translation) and categories (36 binary fields with classification). There is also a "genre" field with multiple categories which is not used in this project.
 
@@ -73,7 +75,7 @@ Early stopping was activated and validation fraction set to 10%. With this confi
 
 #### 3.5. Further investigations
 ##### Neural networks for NLP
-After studying literature about NLP it was obvious, that MLP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
+After studying literature about NLP it was obvious, that MLP is not the best neural network for the task. LSTM or RNN are preferred because they naturally have the capacity to store information about previously processed information and therefore can capture context of the message.
 ##### Variations in pipelines
 It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance. Word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly. Removing stop words have shown almost no effect for all classifiers except MLP, which had slight performance increase when keeping the stop words.
 ##### Using only nouns
@@ -89,5 +91,36 @@ recall | 0.703731 | 0.675585
 f1 | 0.707707 | 0.677456
 roc_auc | 0.703731 | 0.675585
 
-### 4. Dealing with imbalance
-The data in this dataset is highly imbalanced
+### 4. Closer look at the data, dealing with imbalance
+The messages can be related to disaster or not:
+
+![Histogram related messages distribution](/images/RelatedHistogram.PNG)
+
+Related messages constitute around 76% of the cleaned data and are clearly the majority class.
+
+Each related message can have multiple categories
+
+![Number of message categories distribution](/images/MessageCategoriesHistogram.PNG)
+
+Notice that this is a logarithmic plot on the y-axis. Most messages have less than 10 categories, but some can have up to 25.
+
+Although the proportion of related messages is high and each related message has on average 4.17 categories some categories are drastically underrepresented in this dataset.
+
+![Number of message categories distribution](/images/CategoriesMeanHistogram.PNG)
+
+###### To deal with imbalance following measures were applied:
+1. To validate the performance of ML pipeline following scoring metrics were applied:
+    * precision (true positives / (true positives + false positives) )
+    * recall (true positives  / (true positives + false negatives) )
+    * f1 score (2 * (precision * recall) / (precision + recall) )
+    * area under the reciever operating characteristic curve (ROC AUC) https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc
+2. To ensure that the influence of minority classes or categories is not shown in metrics macro averaging was applied to calculate composite score for every category as well as the overall score for a classifier. Macro averaging assigns equal weights to all classes so that if the score of a minority class has same impact as that of the majority class.
+3. For MLP classifier upsampling of minority class was applied on training data.
+
+### 5. Further thoughts on disaster response pipeline
+
+A real disaster response pipeline has to deal with millions of messages. The fraction of related messages is much lower than in the presented dataset. For this scenario the following approach can be of advantage:
+1. Create a classifier, which filters messages related to current disaster. This classifier must use additional data such as IP address or device location if possible. For training the NLP part of such a classifier a balanced dataset of related and unrelated messages is needed.
+2. Create a classifier for coarse categories such as food, water, weather, earthquake etc.
+3. Create a sub-categories classifier.
+4. Extract proper nouns from messages to indicate names, addresses or landmarks.
