@@ -50,9 +50,15 @@ To test different models and parameters a custom function *build_cv* was impleme
 Cross-validation was performed for MLPC using grid search. Optimal parameters were applied to continue training. Training multi-output MLPC classifier is essentially training multiple classifiers one for each output. For this reason only one category "related" was used to perform grid search.
 
 #### 3.3. Comparing classifiers
+The following table contains the ROC AUC score, training time and pickle size of the saved model.
+
 Classifier| ROC AUC | size, MB | training time, s
 ------------ | ------------- | ------------- | -------------
 Linear SVC | 0.703731 | 37.5 | 36.756851
 MLPC | 0.659678 | 1590.0 | 1393.571046
 RF | 0.580703 | 1020.0 | 532.916047
 Multinomial NB | 0.647583 | 29.8 | 9.396868
+
+It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance.
+
+#### 3.4. Further investigations
