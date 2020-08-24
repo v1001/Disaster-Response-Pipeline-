@@ -20,3 +20,11 @@ The Overview states that "This dataset contains 30,000 messages drawn from event
 The dataset consists of twitter messages (text data fields for original language and english translation) and categories (36 binary fields with classification). There is also a "genre" field with multiple categories which is not used in this project.
 
 ### 2. ETL pipeline
+ETL pipeline **extracts** messages and categories from csv files, **transforms** and cleans data and **loads** it to an SQLlite database. These are the cleaning steps:
+- split the categories in separate fields and convert the values to numeric
+- remove duplicate entries
+- remove columns with no entries ("child alone")
+- remove messages with "related" set to 2, which occur to have no other categories and are likely to contain errors, e.g. not translated text in the message field
+
+### 3. ML pipeline
+The goal of **machine learning pipeline** is to **transform** the input data, **train** the model and **predict** outputs of new samples. 
