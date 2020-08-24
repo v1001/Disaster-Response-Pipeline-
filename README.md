@@ -37,9 +37,9 @@ Natural language needs to be converted to a format, which machine learning algor
 4. *CountVectorizer* was used to create vocabulary over the text corpus and convert messages to vectors containing word counts.
 5. *TF IDF* (term frequency inverse document frequency) transformer was used to convert word counts to TF-IDF.
 6. As option word n-grams were used with *CountVectorizer* to account for word embeddings.
-7. A custom transformer *NounsExtractor* was implemented with the goal to keep only nouns from the messages.
 
 #### 3.2. Training, cross-validation, hyperparameter optimization
+First the data was split into **training** and **testing** data.
 The data has multiple categories, hence a multi-output classifier was implemented.
 Following base classifiers were examined:
 1. Multilayer perceptron (MLPC)
@@ -59,6 +59,22 @@ MLPC | 0.659678 | 1590.0 | 1393.571046
 RF | 0.580703 | 1020.0 | 532.916047
 Multinomial NB | 0.647583 | 29.8 | 9.396868
 
+##### Remarks on selecting classifiers, cross-validation and transformers.
+
+MLCP classifier was first considered to be the most promising, because intuitively neural networks are considered to be the best for natural language processing. The first results were very disappointing: the classifier was overfitting, didn't do well with minority classes and took extremely long to train. Several steps were done to find optimal parameters:
+* grid search for the best activation function and solver combination (relu, adam)
+* grid search for the optimal initial learning rate and tolerance (0.001, 0.01)
+* grid search for the optimal hidden layer structure (single layer, 55 neurons)
+* several settings for *CountVectorizer* and *TFIDFTransformer* were tested
+* configurations with and without TFIDF were tested
+Early stopping was activated and validation fraction set to 10%. With this configuration the performance increased, but not for categories with strong imbalance. To compensate for imbalance a custom function *padToBalance* was introduced. This function manipulated training data by cloning the minority data points several time, until their proportion reached the desired level (25%).
+
+After studying literature about NLP it was obvious, that MLCP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
+
 It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance.
+Also word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly.
 
 #### 3.4. Further investigations
+##### 3.4.1 Using only nouns
+Count vectorizer produces a sparse matrix with over 25000 parameters. This dimension increases in factorial ration if n-grams are added for word embeddings. It might be useful to reduce the number of individual words for some cases.
+A custom transformer *NounsExtractor* was implemented to extract nouns from the messages. With this transformer the Linear SVC pipeline was validated. 
