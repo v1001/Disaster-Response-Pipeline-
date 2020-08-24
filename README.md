@@ -46,7 +46,9 @@ Following base classifiers were examined:
 2. Random Forest (RF)
 3. Multinomial Naive Bayes (NB)
 4. Linear Support Vector Classifier (SVC)
-To test different models and parameters a custom function *build_cv* was implemented. 
+
+To test different models and parameters a custom function *build_cv* was implemented.
+
 Cross-validation was performed for MLPC using grid search. Optimal parameters were applied to continue training. Training multi-output MLPC classifier is essentially training multiple classifiers one for each output. For this reason only one category "related" was used to perform grid search.
 
 #### 3.3. Comparing classifiers
@@ -59,7 +61,7 @@ MLPC | 0.659678 | 1590.0 | 1393.571046
 RF | 0.580703 | 1020.0 | 532.916047
 Multinomial NB | 0.647583 | 29.8 | 9.396868
 
-##### Remarks on selecting classifiers, cross-validation and transformers.
+#### 3.4. Cross-validation and grid search for MLPC
 
 MLCP classifier was first considered to be the most promising, because intuitively neural networks are considered to be the best for natural language processing. The first results were very disappointing: the classifier was overfitting, didn't do well with minority classes and took extremely long to train. Several steps were done to find optimal parameters:
 * grid search for the best activation function and solver combination (relu, adam)
@@ -70,12 +72,20 @@ MLCP classifier was first considered to be the most promising, because intuitive
 
 Early stopping was activated and validation fraction set to 10%. With this configuration the performance increased, but not for categories with strong imbalance. To compensate for imbalance a custom function *padToBalance* was introduced. This function manipulated training data by cloning the minority data points several time, until their proportion reached the desired level (25%).
 
+#### 3.5. Further investigations
+##### Neural networks for NLP
 After studying literature about NLP it was obvious, that MLCP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
+##### Variations in pipelines
+It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance. Word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly. Removing stop words have shown almost no effect for all classifiers except MLPC, which had slight performance increase when keeping the stop words.
+##### Using only nouns
+Count vectorizer produces a sparse matrix with over 25000 parameters. This dimension increases in factorial ration if n-grams are added for word embeddings. It might be useful to reduce the number of individual words for some cases. For the text corpus in this project the vocabulary size including 2-word n-grams was almost 200000.
 
-It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance.
-Also word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly.
+A custom transformer *NounsExtractor* was implemented to extract nouns from the messages. The number of individual words in vocabulary was reduced to around 16000 and the vocabulary including 2-word n-grams was almost halved.
 
-#### 3.4. Further investigations
-##### 3.4.1 Using only nouns
-Count vectorizer produces a sparse matrix with over 25000 parameters. This dimension increases in factorial ration if n-grams are added for word embeddings. It might be useful to reduce the number of individual words for some cases.
-A custom transformer *NounsExtractor* was implemented to extract nouns from the messages. With this transformer the Linear SVC pipeline was validated. 
+With this transformer the Linear SVC pipeline was validated. Here are the scores with and without *NounsExtractor*:
+score | full text | only nouns
+----------|----------|-----------
+precision | 0.727760 | 0.686758
+recall | 0.703731 | 0.675585
+f1 | 0.707707 | 0.677456
+roc_auc | 0.703731 | 0.675585
