@@ -70,7 +70,7 @@ MLCP classifier was first considered to be the most promising, because intuitive
 * several settings for *CountVectorizer* were tested (keeping stop words improved the results)
 * configurations with and without TFIDF as well as different parameters were tested (not using TFIDF improved the results)
 
-Early stopping was activated and validation fraction set to 10%. With this configuration the performance increased, but not for categories with strong imbalance. To compensate for imbalance a custom function *padToBalance* was introduced. This function manipulated training data by cloning the minority data points several time, until their proportion reached the desired level (25%).
+Early stopping was activated and validation fraction set to 10%. With this configuration the performance increased, but not for categories with strong imbalance.
 
 #### 3.5. Further investigations
 ##### Neural networks for NLP
@@ -89,3 +89,6 @@ precision | 0.727760 | 0.686758
 recall | 0.703731 | 0.675585
 f1 | 0.707707 | 0.677456
 roc_auc | 0.703731 | 0.675585
+
+### 4. Dealing with imbalance
+The data in this dataset is highly imbalanced
