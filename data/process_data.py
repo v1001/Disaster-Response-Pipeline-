@@ -35,11 +35,13 @@ def load_data(messages_filepath, categories_filepath):
     return(df)
 
 def clean_data(df):
-    return(df.drop_duplicates().drop(columns = ['child_alone']))
-
+    df = df.loc[:, (df != 0).any(axis=0)]
+    df = df[df['related']!=2]
+    return df
 
 def save_data(df, database_filename):
-    pass  
+    engine = create_engine('sqlite:///DisasterResponse.db')
+    df.to_sql('disaster_tweets', engine, index=False, if_exists='replace')
 
 
 def main():
