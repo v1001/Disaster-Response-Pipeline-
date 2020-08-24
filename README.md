@@ -28,3 +28,11 @@ ETL pipeline **extracts** messages and categories from csv files, **transforms**
 
 ### 3. ML pipeline
 The goal of **machine learning pipeline** is to **transform** the input data, **train** the model and **predict** outputs of new samples. 
+
+#### 3.1. Data trsansformation for natural language processing (NLP)
+Natural language needs to be converted to a format, which machine learning algorithms can deal with. For this following transformation were applied to the text messages:
+1. Only english letters were kept in the message. All other characters were replaced with spaces.
+2. All words were converted to lower case.
+3. The messages were tokenized - converted to lists of words.
+4. *CountVectorizer* was used to create vocabulary over the text corpus and convert messages to vectors containing word counts.
+5. *TF IDF* (term frequency inverse document frequency) transformer was used to convert word counts to TF-IDF.
