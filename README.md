@@ -47,10 +47,6 @@ Following base classifiers were examined:
 3. Multinomial Naive Bayes (NB)
 4. Linear Support Vector Classifier (SVC)
 
-To test different models and parameters a custom function *build_cv* was implemented.
-
-Cross-validation was performed for MLPC using grid search. Optimal parameters were applied to continue training. Training multi-output MLPC classifier is essentially training multiple classifiers one for each output. For this reason only one category "related" was used to perform grid search.
-
 #### 3.3. Comparing classifiers
 The following table contains the ROC AUC score, training time and pickle size of the saved model.
 
@@ -62,6 +58,9 @@ RF | 0.580703 | 1020.0 | 532.916047
 Multinomial NB | 0.647583 | 29.8 | 9.396868
 
 #### 3.4. Cross-validation and grid search for MLPC
+To test different models and parameters a custom function *build_cv* was implemented.
+
+Cross-validation was performed for MLPC using grid search. Optimal parameters were applied to continue training. Training multi-output MLP classifier is essentially training one classifiers for each output. For this reason only one category "related" was used to perform grid search.
 
 MLP classifier was first considered to be the most promising, because intuitively neural networks are considered to be the best for natural language processing. The first results were very disappointing: the classifier was overfitting, didn't do well with minority classes and took extremely long to train. Several steps were done to find optimal parameters:
 * grid search for the best activation function and solver combination (relu, adam)
@@ -74,7 +73,7 @@ Early stopping was activated and validation fraction set to 10%. With this confi
 
 #### 3.5. Further investigations
 ##### Neural networks for NLP
-After studying literature about NLP it was obvious, that MLCP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
+After studying literature about NLP it was obvious, that MLP is not the best neural network for the task. LSTM or RNN is preferred, because they naturally have the capacity to store information about previously processed information.
 ##### Variations in pipelines
 It is worth to be noted, that not all ML pipelines used the same steps before classifiers were applied. For example only Linear SVC pipeline uses TF-IDF. This isn't however the reason for better performance. Other pipelines were validated with or without TF-IDF and had no increase or even a slight decrease in performance. Word n-grams of order 2 were used with Linear SVC. These also were tried with other classifiers, but they didn't improve their performance significantly. Removing stop words have shown almost no effect for all classifiers except MLP, which had slight performance increase when keeping the stop words.
 ##### Using only nouns
