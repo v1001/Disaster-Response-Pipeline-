@@ -36,3 +36,12 @@ Natural language needs to be converted to a format, which machine learning algor
 3. The messages were tokenized - converted to lists of words.
 4. *CountVectorizer* was used to create vocabulary over the text corpus and convert messages to vectors containing word counts.
 5. *TF IDF* (term frequency inverse document frequency) transformer was used to convert word counts to TF-IDF.
+6. As option word n-grams were used with *CountVectorizer* to account for word embeddings.
+7. A custom transformer *NounsExtractor* was implemented with the goal to keep only nouns from the messages.
+
+### 3.2. Training, cross-validation, hyperparameter optimization
+To test different models and parameters a custom function *build_cv* was implemented. Following classifiers were examined in this project:
+1. Multilayer perceptron
+2. Random Forest
+3. Multinomial Naive Bayes
+4. Linear Support Vector Classifier
