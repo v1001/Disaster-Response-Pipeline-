@@ -26,11 +26,11 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+df = pd.read_sql_table('disaster_tweets', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -40,12 +40,60 @@ def index():
     
     # extract data needed for visuals
     # TODO: Below is an example - modify to extract data for your own visuals
+    
+    labeldf = pd.DataFrame(df.drop(columns = ['id', 'message', 'original', 'genre']).sum())
+    labeldf.sort_values(by=[0], axis=0, inplace=True, ascending=False)
+    
+    labelhist = (df.drop(columns = ['id', 'message', 'original', 'genre']).sum(axis=1))
+    hist = pd.cut(labelhist,[0,1,2,4,8,16,32]).value_counts()
+    label_hist = hist.values.tolist()
+    label_hist_names = ['0 - 1', '1 - 2', '2 - 4', '4 - 8', '8 - 16', '16 - 32']
+    
+    label_counts = [x[0] for x in labeldf.values.tolist()]
+    label_names = labeldf.index.tolist()
+    
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
+        {
+            'data': [
+                Bar(
+                    x=label_names,
+                    y=label_counts
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Labels',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Label"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=label_hist_names,
+                    y=label_hist
+                )
+            ],
+
+            'layout': {
+                'title': 'Number of Categories pro Message',
+                'yaxis': {
+                    'title': "Message coun"
+                },
+                'xaxis': {
+                    'title': "Label Count"
+                }
+            }
+        },
         {
             'data': [
                 Bar(
