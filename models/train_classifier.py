@@ -93,8 +93,25 @@ def show_results(y_test, y_pred, category_names):
         print('Classification result for category \"{}\":'.format(label))
         print(classification_report(true, pred))
 
+        
+def build_cv(pipeline, parameters):
+    """build grid search
 
-def build_model():
+    Keyword arguments:
+    pipeline -- ML pipeline
+    parameters -- python dictionary with parameters
+    
+    Return:
+    GridSearchCV object
+    """
+    # create grid search object
+    cv = GridSearchCV(pipeline, param_grid = parameters, verbose = 5, n_jobs = -1, scoring = 'f1_weighted', refit = True,
+                     return_train_score = False)
+
+    return cv
+
+
+def build_model(X_train, Y_train):
     """build machine learning pipeline
 
     Keyword arguments:
@@ -108,7 +125,17 @@ def build_model():
         ('tfidf', TfidfTransformer()),
         ('clf', MultiOutputClassifier(LinearSVC(class_weight = 'balanced', random_state = 1)))
     ])
-    return model_SVC
+    
+    parameters = {
+        'vect__ngram_range': [(1,1), (1,2)],
+        'tfidf__use_idf': [True, False],
+        'clf__estimator__fit_intercept': [True, False]
+    }
+    
+    cv = build_cv(model_SVC, parameters)
+    cv.fit(X_train, Y_train)
+    
+    return cv.best_estimator_
 
 def evaluate_model(model, X_test, Y_test, category_names):
     """predict results on test data and display validation (scores)
@@ -150,7 +177,7 @@ def main():
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
         
         print('Building model...')
-        model = build_model()
+        model = build_model(X_train, Y_train)
         
         print('Training model...')
         model.fit(X_train, Y_train)
