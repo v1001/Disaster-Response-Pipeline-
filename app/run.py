@@ -139,6 +139,9 @@ def go():
         classification_result=classification_results
     )
 
+@app.route('/report')
+def report():
+    return render_template('classification_report.html')
 
 def main():
     app.run(host='0.0.0.0', port=3001, debug=True)

@@ -33,6 +33,16 @@ from sklearn.metrics import f1_score, precision_score, recall_score, confusion_m
 from sqlalchemy import create_engine
 
 def load_data(database_filepath):
+    """Saves DataFrame to a SQL database
+
+    Keyword arguments:
+    database_filpath -- file path to the file with database
+    
+    Return:
+    X -- messages from database as pandas DataFrame
+    y -- categories from database as pandas DataFrame
+    category_names -- python list
+    """
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     df = pd.read_sql_table('disaster_tweets', engine)
     X = df['message']
@@ -43,6 +53,14 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    """transforms string into list with tokens (words)
+
+    Keyword arguments:
+    text -- string with text
+    
+    Return:
+    tokens -- python list with tokens
+    """
     # remove non-letter characters
     text = re.sub(r"[^a-zA-Z]", " ", text.lower())
     # tokenize
@@ -58,6 +76,17 @@ def tokenize(text):
 
 
 def show_results(y_test, y_pred, category_names):
+    """display validation results (scores)
+
+    Keyword arguments:
+    y_test -- true test labels as pandas DataFrame
+    y_pred -- predicted test labels as pandas DataFrame
+    category_names -- names of categories as python list
+    
+    Return:
+    None
+
+    """
     for label in category_names:
         true = y_test[label].values
         pred = y_pred[label].values
@@ -66,6 +95,14 @@ def show_results(y_test, y_pred, category_names):
 
 
 def build_model():
+    """build machine learning pipeline
+
+    Keyword arguments:
+
+    Return:
+    Pipeline
+
+    """
     model_SVC = Pipeline([
         ('vect', CountVectorizer(tokenizer = tokenize, ngram_range = (1,2), stop_words = 'english')),
         ('tfidf', TfidfTransformer()),
@@ -74,11 +111,32 @@ def build_model():
     return model_SVC
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """predict results on test data and display validation (scores)
+
+    Keyword arguments:
+    model -- pandas Pipeline
+    y_test -- true test labels as pandas DataFrame
+    X_test -- test data
+    category_names -- names of categories as python list
+    
+    Return:
+    None
+
+    """
     y_pred = pd.DataFrame(model.predict(X_test), columns = category_names)
     show_results(Y_test, y_pred, category_names)
 
 
 def save_model(model, model_filepath):
+    """saves model to specified path as pickle
+
+    Keyword arguments:
+    model_filepath -- file path to model file
+    
+    Return:
+    None
+
+    """
     f = open(model_filepath,'wb')
     pickle.dump(model, f)
     f.close()

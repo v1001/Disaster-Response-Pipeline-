@@ -5,6 +5,16 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
+    """Load data from specified files
+
+    Keyword arguments:
+    messages_filepath -- file path to the file with messages
+    categories_filepath -- file path to the file with categories
+    
+    Return:
+    pandas DataFrame with both messages and categories
+    """
+    
     # load messages dataset
     messages = pd.read_csv(messages_filepath)
     # load categories dataset
@@ -35,11 +45,29 @@ def load_data(messages_filepath, categories_filepath):
     return(df)
 
 def clean_data(df):
+    """Cleans data from duplicates, errors and empty columns
+
+    Keyword arguments:
+    df -- pandas DataFrame
+    
+    Return:
+    pandas DataFrame
+    """
     df = df.loc[:, (df != 0).any(axis=0)]
     df = df[df['related']!=2]
     return df
 
 def save_data(df, database_filename):
+    """Saves DataFrame to a SQL database
+
+    Keyword arguments:
+    df -- pandas DataFrame
+    database_filename -- file path to the file with database
+    
+    Return:
+    None
+    """
+    
     engine = create_engine('sqlite:///DisasterResponse.db')
     df.to_sql('disaster_tweets', engine, index=False, if_exists='replace')
 
