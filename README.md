@@ -381,8 +381,7 @@ Classification result for category "other_infrastructure":
 
           0       0.96      0.98      0.97      6208
           1       0.25      0.17      0.20       299
-
-avg / total       0.93      0.94      0.93      6507
+    avg / total   0.93      0.94      0.93      6507
 
 Classification result for category "weather_related":
 
@@ -390,7 +389,7 @@ Classification result for category "weather_related":
 
           0       0.92      0.90      0.91      4657
           1       0.75      0.80      0.77      1850
-    avg / total       0.87      0.87      0.87      6507
+    avg / total   0.87      0.87      0.87      6507
 
 Classification result for category "floods":
 
@@ -398,7 +397,7 @@ Classification result for category "floods":
 
           0       0.97      0.98      0.97      5975
           1       0.70      0.63      0.66       532
-    avg / total       0.95      0.95      0.95      6507
+    avg / total   0.95      0.95      0.95      6507
 
 Classification result for category "storm":
 
@@ -406,7 +405,7 @@ Classification result for category "storm":
 
           0       0.98      0.96      0.97      5880
           1       0.69      0.78      0.73       627
-    avg / total       0.95      0.94      0.95      6507
+    avg / total   0.95      0.94      0.95      6507
 
 Classification result for category "fire":
 
@@ -414,7 +413,7 @@ Classification result for category "fire":
 
           0       0.99      1.00      0.99      6448
           1       0.31      0.08      0.13        59
-    avg / total       0.99      0.99      0.99      6507
+    avg / total   0.99      0.99      0.99      6507
 
 Classification result for category "earthquake":
 
@@ -422,7 +421,7 @@ Classification result for category "earthquake":
 
           0       0.98      0.98      0.98      5853
           1       0.85      0.82      0.84       654
-    avg / total       0.97      0.97      0.97      6507
+    avg / total   0.97      0.97      0.97      6507
 
 Classification result for category "cold":
 
@@ -430,7 +429,7 @@ Classification result for category "cold":
 
           0       0.99      0.99      0.99      6369
           1       0.55      0.41      0.47       138
-    avg / total       0.98      0.98      0.98      6507
+    avg / total   0.98      0.98      0.98      6507
 
 Classification result for category "other_weather":
 
@@ -438,7 +437,7 @@ Classification result for category "other_weather":
 
           0       0.96      0.98      0.97      6162
           1       0.42      0.33      0.37       345
-    avg / total       0.93      0.94      0.94      6507
+    avg / total   0.93      0.94      0.94      6507
 
 Classification result for category "direct_report":
 
@@ -446,4 +445,4 @@ Classification result for category "direct_report":
 
           0       0.91      0.88      0.90      5216
           1       0.58      0.65      0.61      1291
-        avg / total       0.85      0.84      0.84      6507
+    avg / total   0.85      0.84      0.84      6507
