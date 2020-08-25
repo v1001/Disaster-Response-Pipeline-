@@ -148,7 +148,7 @@ Classification result for category "related":
           0       0.64      0.58      0.61      1540
           1       0.87      0.90      0.89      4967
 
-avg / total       0.82      0.82      0.82      6507
+    avg / total   0.82      0.82      0.82      6507
 
 Classification result for category "request":
 
@@ -157,7 +157,7 @@ Classification result for category "request":
           0       0.94      0.91      0.93      5387
           1       0.63      0.71      0.67      1120
 
-avg / total       0.89      0.88      0.88      6507
+    avg / total   0.89      0.88      0.88      6507
 
 Classification result for category "offer":
 
@@ -166,7 +166,7 @@ Classification result for category "offer":
           0       1.00      1.00      1.00      6484
           1       0.50      0.04      0.08        23
 
-avg / total       0.99      1.00      0.99      6507
+    avg / total   0.99      1.00      0.99      6507
 
 Classification result for category "aid_related":
 
@@ -175,7 +175,7 @@ Classification result for category "aid_related":
           0       0.83      0.74      0.78      3828
           1       0.67      0.78      0.72      2679
 
-avg / total       0.76      0.75      0.76      6507
+    avg / total   0.76      0.75      0.76      6507
 
 Classification result for category "medical_help":
 
@@ -184,7 +184,7 @@ Classification result for category "medical_help":
           0       0.95      0.95      0.95      5988
           1       0.46      0.47      0.47       519
 
-avg / total       0.91      0.91      0.91      6507
+    avg / total   0.91      0.91      0.91      6507
 
 Classification result for category "medical_products":
 
@@ -193,7 +193,7 @@ Classification result for category "medical_products":
           0       0.97      0.98      0.97      6186
           1       0.50      0.49      0.50       321
 
-avg / total       0.95      0.95      0.95      6507
+    avg / total   0.95      0.95      0.95      6507
 
 Classification result for category "search_and_rescue":
 
@@ -202,7 +202,7 @@ Classification result for category "search_and_rescue":
           0       0.98      0.99      0.99      6354
           1       0.46      0.22      0.30       153
 
-avg / total       0.97      0.98      0.97      6507
+    avg / total   0.97      0.98      0.97      6507
 
 Classification result for category "security":
 
@@ -211,7 +211,7 @@ Classification result for category "security":
           0       0.98      1.00      0.99      6383
           1       0.23      0.05      0.08       124
 
-avg / total       0.97      0.98      0.97      6507
+    avg / total   0.97      0.98      0.97      6507
 
 Classification result for category "military":
 
@@ -220,7 +220,7 @@ Classification result for category "military":
           0       0.98      0.98      0.98      6284
           1       0.51      0.55      0.53       223
 
-avg / total       0.97      0.97      0.97      6507
+    avg / total   0.97      0.97      0.97      6507
 
 Classification result for category "water":
 
@@ -229,7 +229,7 @@ Classification result for category "water":
           0       0.99      0.97      0.98      6091
           1       0.66      0.81      0.72       416
 
-avg / total       0.97      0.96      0.96      6507
+    avg / total   0.97      0.96      0.96      6507
 
 Classification result for category "food":
 
@@ -238,7 +238,7 @@ Classification result for category "food":
           0       0.98      0.96      0.97      5783
           1       0.74      0.81      0.78       724
 
-avg / total       0.95      0.95      0.95      6507
+    avg / total   0.95      0.95      0.95      6507
 
 Classification result for category "shelter":
 
@@ -247,7 +247,7 @@ Classification result for category "shelter":
           0       0.97      0.95      0.96      5928
           1       0.60      0.71      0.65       579
 
-avg / total       0.94      0.93      0.93      6507
+    avg / total   0.94      0.93      0.93      6507
 
 Classification result for category "clothing":
 
@@ -256,7 +256,7 @@ Classification result for category "clothing":
           0       0.99      1.00      0.99      6410
           1       0.65      0.55      0.60        97
 
-avg / total       0.99      0.99      0.99      6507
+    avg / total   0.99      0.99      0.99      6507
 
 Classification result for category "money":
 
@@ -265,7 +265,7 @@ Classification result for category "money":
           0       0.99      0.99      0.99      6366
           1       0.42      0.45      0.44       141
 
-avg / total       0.98      0.97      0.97      6507
+    avg / total   0.98      0.97      0.97      6507
 
 Classification result for category "missing_people":
 
@@ -274,7 +274,7 @@ Classification result for category "missing_people":
           0       0.99      1.00      0.99      6425
           1       0.45      0.18      0.26        82
 
-avg / total       0.98      0.99      0.98      6507
+    avg / total   0.98      0.99      0.98      6507
 
 Classification result for category "refugees":
 
@@ -283,7 +283,7 @@ Classification result for category "refugees":
           0       0.98      0.99      0.98      6266
           1       0.53      0.35      0.42       241
 
-avg / total       0.96      0.96      0.96      6507
+    avg / total   0.96      0.96      0.96      6507
 
 Classification result for category "death":
 
@@ -292,7 +292,7 @@ Classification result for category "death":
           0       0.98      0.99      0.98      6214
           1       0.68      0.66      0.67       293
 
-avg / total       0.97      0.97      0.97      6507
+    avg / total   0.97      0.97      0.97      6507
 
 Classification result for category "other_aid":
 
@@ -301,7 +301,7 @@ Classification result for category "other_aid":
           0       0.91      0.89      0.90      5642
           1       0.38      0.44      0.41       865
 
-avg / total       0.84      0.83      0.84      6507
+    avg / total   0.84      0.83      0.84      6507
 
 Classification result for category "infrastructure_related":
 
@@ -310,7 +310,7 @@ Classification result for category "infrastructure_related":
           0       0.95      0.96      0.95      6073
           1       0.28      0.23      0.25       434
 
-avg / total       0.90      0.91      0.90      6507
+    avg / total   0.90      0.91      0.90      6507
 
 Classification result for category "transport":
 
@@ -319,7 +319,7 @@ Classification result for category "transport":
           0       0.97      0.98      0.98      6208
           1       0.47      0.31      0.38       299
 
-avg / total       0.94      0.95      0.95      6507
+    avg / total   0.94      0.95      0.95      6507
 
 Classification result for category "buildings":
 
@@ -328,7 +328,7 @@ Classification result for category "buildings":
           0       0.98      0.97      0.97      6169
           1       0.49      0.58      0.53       338
 
-avg / total       0.95      0.95      0.95      6507
+    avg / total   0.95      0.95      0.95      6507
 
 Classification result for category "electricity":
 
@@ -337,7 +337,7 @@ Classification result for category "electricity":
           0       0.99      0.99      0.99      6379
           1       0.52      0.55      0.53       128
 
-avg / total       0.98      0.98      0.98      6507
+    avg / total   0.98      0.98      0.98      6507
 
 Classification result for category "tools":
 
@@ -346,7 +346,7 @@ Classification result for category "tools":
           0       0.99      1.00      1.00      6470
           1       0.00      0.00      0.00        37
 
-avg / total       0.99      0.99      0.99      6507
+    avg / total   0.99      0.99      0.99      6507
 
 Classification result for category "hospitals":
 
@@ -355,7 +355,7 @@ Classification result for category "hospitals":
           0       0.99      0.99      0.99      6447
           1       0.28      0.25      0.27        60
 
-avg / total       0.99      0.99      0.99      6507
+    avg / total   0.99      0.99      0.99      6507
 
 Classification result for category "shops":
 
@@ -363,8 +363,8 @@ Classification result for category "shops":
 
           0       0.99      1.00      1.00      6474
           1       0.00      0.00      0.00        33
-
-avg / total       0.99      0.99      0.99      6507
+          
+    avg / total   0.99      0.99      0.99      6507
 
 Classification result for category "aid_centers":
 
@@ -372,8 +372,8 @@ Classification result for category "aid_centers":
 
           0       0.99      1.00      0.99      6431
           1       0.28      0.11      0.15        76
-
-avg / total       0.98      0.99      0.98      6507
+          
+    avg / total   0.98      0.99      0.98      6507
 
 Classification result for category "other_infrastructure":
 
@@ -381,6 +381,7 @@ Classification result for category "other_infrastructure":
 
           0       0.96      0.98      0.97      6208
           1       0.25      0.17      0.20       299
+          
     avg / total   0.93      0.94      0.93      6507
 
 Classification result for category "weather_related":
@@ -389,6 +390,7 @@ Classification result for category "weather_related":
 
           0       0.92      0.90      0.91      4657
           1       0.75      0.80      0.77      1850
+          
     avg / total   0.87      0.87      0.87      6507
 
 Classification result for category "floods":
@@ -397,6 +399,7 @@ Classification result for category "floods":
 
           0       0.97      0.98      0.97      5975
           1       0.70      0.63      0.66       532
+          
     avg / total   0.95      0.95      0.95      6507
 
 Classification result for category "storm":
@@ -413,6 +416,7 @@ Classification result for category "fire":
 
           0       0.99      1.00      0.99      6448
           1       0.31      0.08      0.13        59
+          
     avg / total   0.99      0.99      0.99      6507
 
 Classification result for category "earthquake":
@@ -421,6 +425,7 @@ Classification result for category "earthquake":
 
           0       0.98      0.98      0.98      5853
           1       0.85      0.82      0.84       654
+          
     avg / total   0.97      0.97      0.97      6507
 
 Classification result for category "cold":
@@ -429,6 +434,7 @@ Classification result for category "cold":
 
           0       0.99      0.99      0.99      6369
           1       0.55      0.41      0.47       138
+          
     avg / total   0.98      0.98      0.98      6507
 
 Classification result for category "other_weather":
@@ -437,6 +443,7 @@ Classification result for category "other_weather":
 
           0       0.96      0.98      0.97      6162
           1       0.42      0.33      0.37       345
+          
     avg / total   0.93      0.94      0.94      6507
 
 Classification result for category "direct_report":
@@ -445,4 +452,5 @@ Classification result for category "direct_report":
 
           0       0.91      0.88      0.90      5216
           1       0.58      0.65      0.61      1291
+          
     avg / total   0.85      0.84      0.84      6507
