@@ -125,8 +125,21 @@ A real disaster response pipeline has to deal with millions of messages. The fra
 3. Create a sub-categories classifier.
 4. Extract proper nouns from messages to indicate names, addresses or landmarks.
 
-### 6. Full classification report
-
+### 6. Final pipeline and full classification report
+#### 6.1. Final pipeline
+CountVectorizer(analyzer='word', binary=False, decode_error='strict',
+        dtype=<class 'numpy.int64'>, encoding='utf-8', input='content',
+        lowercase=True, max_df=1.0, max_features=None, min_df=1,
+        ngram_range=(1, 2), preprocessor=None, stop_words='english',
+        strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
+        tokenizer=<function tokenize at 0x7f0f012a2620>, vocabulary=None)
+        
+MultiOutputClassifier(estimator=LinearSVC(C=1.0, class_weight='balanced', dual=True, fit_intercept=True,
+     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
+     multi_class='ovr', penalty='l2', random_state=1, tol=0.0001,
+     verbose=0),
+           n_jobs=1)
+#### 6.2. Classification reports for all categories
 Classification result for category "related":
              precision    recall  f1-score   support
 
