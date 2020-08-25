@@ -115,6 +115,8 @@ def build_model(X_train, Y_train):
     """build machine learning pipeline
 
     Keyword arguments:
+    X_train -- training data for grid search
+    Y_train -- training data for grid search
 
     Return:
     Pipeline
