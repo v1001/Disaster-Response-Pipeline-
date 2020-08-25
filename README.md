@@ -134,6 +134,8 @@ CountVectorizer(analyzer='word', binary=False, decode_error='strict',
         strip_accents=None, token_pattern='(?u)\\b\\w\\w+\\b',
         tokenizer=<function tokenize at 0x7f0f012a2620>, vocabulary=None)
         
+TfidfTransformer(use_idf = False)
+        
 MultiOutputClassifier(estimator=LinearSVC(C=1.0, class_weight='balanced', dual=True, fit_intercept=True,
      intercept_scaling=1, loss='squared_hinge', max_iter=1000,
      multi_class='ovr', penalty='l2', random_state=1, tol=0.0001,
