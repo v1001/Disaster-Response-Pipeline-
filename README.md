@@ -169,6 +169,7 @@ Classification result for category "offer":
 avg / total       0.99      1.00      0.99      6507
 
 Classification result for category "aid_related":
+
              precision    recall  f1-score   support
 
           0       0.83      0.74      0.78      3828
