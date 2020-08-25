@@ -140,6 +140,9 @@ MultiOutputClassifier(estimator=LinearSVC(C=1.0, class_weight='balanced', dual=T
      verbose=0),
            n_jobs=1)
 #### 6.2. Classification reports for all categories
+
+precision    recall  f1-score   support
+
 Classification result for category "related":
              precision    recall  f1-score   support
 
