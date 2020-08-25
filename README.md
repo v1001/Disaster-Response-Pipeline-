@@ -141,9 +141,8 @@ MultiOutputClassifier(estimator=LinearSVC(C=1.0, class_weight='balanced', dual=T
            n_jobs=1)
 #### 6.2. Classification reports for all categories
 
-precision    recall  f1-score   support
-
 Classification result for category "related":
+
              precision    recall  f1-score   support
 
           0       0.64      0.58      0.61      1540
@@ -152,6 +151,7 @@ Classification result for category "related":
 avg / total       0.82      0.82      0.82      6507
 
 Classification result for category "request":
+
              precision    recall  f1-score   support
 
           0       0.94      0.91      0.93      5387
@@ -160,6 +160,7 @@ Classification result for category "request":
 avg / total       0.89      0.88      0.88      6507
 
 Classification result for category "offer":
+
              precision    recall  f1-score   support
 
           0       1.00      1.00      1.00      6484
@@ -176,6 +177,7 @@ Classification result for category "aid_related":
 avg / total       0.76      0.75      0.76      6507
 
 Classification result for category "medical_help":
+
              precision    recall  f1-score   support
 
           0       0.95      0.95      0.95      5988
@@ -184,6 +186,7 @@ Classification result for category "medical_help":
 avg / total       0.91      0.91      0.91      6507
 
 Classification result for category "medical_products":
+
              precision    recall  f1-score   support
 
           0       0.97      0.98      0.97      6186
@@ -192,6 +195,7 @@ Classification result for category "medical_products":
 avg / total       0.95      0.95      0.95      6507
 
 Classification result for category "search_and_rescue":
+
              precision    recall  f1-score   support
 
           0       0.98      0.99      0.99      6354
@@ -200,6 +204,7 @@ Classification result for category "search_and_rescue":
 avg / total       0.97      0.98      0.97      6507
 
 Classification result for category "security":
+
              precision    recall  f1-score   support
 
           0       0.98      1.00      0.99      6383
@@ -208,6 +213,7 @@ Classification result for category "security":
 avg / total       0.97      0.98      0.97      6507
 
 Classification result for category "military":
+
              precision    recall  f1-score   support
 
           0       0.98      0.98      0.98      6284
@@ -216,6 +222,7 @@ Classification result for category "military":
 avg / total       0.97      0.97      0.97      6507
 
 Classification result for category "water":
+
              precision    recall  f1-score   support
 
           0       0.99      0.97      0.98      6091
@@ -224,6 +231,7 @@ Classification result for category "water":
 avg / total       0.97      0.96      0.96      6507
 
 Classification result for category "food":
+
              precision    recall  f1-score   support
 
           0       0.98      0.96      0.97      5783
@@ -232,6 +240,7 @@ Classification result for category "food":
 avg / total       0.95      0.95      0.95      6507
 
 Classification result for category "shelter":
+
              precision    recall  f1-score   support
 
           0       0.97      0.95      0.96      5928
@@ -240,6 +249,7 @@ Classification result for category "shelter":
 avg / total       0.94      0.93      0.93      6507
 
 Classification result for category "clothing":
+
              precision    recall  f1-score   support
 
           0       0.99      1.00      0.99      6410
@@ -248,6 +258,7 @@ Classification result for category "clothing":
 avg / total       0.99      0.99      0.99      6507
 
 Classification result for category "money":
+
              precision    recall  f1-score   support
 
           0       0.99      0.99      0.99      6366
@@ -256,6 +267,7 @@ Classification result for category "money":
 avg / total       0.98      0.97      0.97      6507
 
 Classification result for category "missing_people":
+
              precision    recall  f1-score   support
 
           0       0.99      1.00      0.99      6425
@@ -264,6 +276,7 @@ Classification result for category "missing_people":
 avg / total       0.98      0.99      0.98      6507
 
 Classification result for category "refugees":
+
              precision    recall  f1-score   support
 
           0       0.98      0.99      0.98      6266
@@ -272,6 +285,7 @@ Classification result for category "refugees":
 avg / total       0.96      0.96      0.96      6507
 
 Classification result for category "death":
+
              precision    recall  f1-score   support
 
           0       0.98      0.99      0.98      6214
@@ -280,6 +294,7 @@ Classification result for category "death":
 avg / total       0.97      0.97      0.97      6507
 
 Classification result for category "other_aid":
+
              precision    recall  f1-score   support
 
           0       0.91      0.89      0.90      5642
@@ -288,6 +303,7 @@ Classification result for category "other_aid":
 avg / total       0.84      0.83      0.84      6507
 
 Classification result for category "infrastructure_related":
+
              precision    recall  f1-score   support
 
           0       0.95      0.96      0.95      6073
@@ -296,6 +312,7 @@ Classification result for category "infrastructure_related":
 avg / total       0.90      0.91      0.90      6507
 
 Classification result for category "transport":
+
              precision    recall  f1-score   support
 
           0       0.97      0.98      0.98      6208
@@ -304,6 +321,7 @@ Classification result for category "transport":
 avg / total       0.94      0.95      0.95      6507
 
 Classification result for category "buildings":
+
              precision    recall  f1-score   support
 
           0       0.98      0.97      0.97      6169
@@ -312,6 +330,7 @@ Classification result for category "buildings":
 avg / total       0.95      0.95      0.95      6507
 
 Classification result for category "electricity":
+
              precision    recall  f1-score   support
 
           0       0.99      0.99      0.99      6379
@@ -320,6 +339,7 @@ Classification result for category "electricity":
 avg / total       0.98      0.98      0.98      6507
 
 Classification result for category "tools":
+
              precision    recall  f1-score   support
 
           0       0.99      1.00      1.00      6470
@@ -328,6 +348,7 @@ Classification result for category "tools":
 avg / total       0.99      0.99      0.99      6507
 
 Classification result for category "hospitals":
+
              precision    recall  f1-score   support
 
           0       0.99      0.99      0.99      6447
@@ -336,6 +357,7 @@ Classification result for category "hospitals":
 avg / total       0.99      0.99      0.99      6507
 
 Classification result for category "shops":
+
              precision    recall  f1-score   support
 
           0       0.99      1.00      1.00      6474
@@ -344,6 +366,7 @@ Classification result for category "shops":
 avg / total       0.99      0.99      0.99      6507
 
 Classification result for category "aid_centers":
+
              precision    recall  f1-score   support
 
           0       0.99      1.00      0.99      6431
@@ -352,6 +375,7 @@ Classification result for category "aid_centers":
 avg / total       0.98      0.99      0.98      6507
 
 Classification result for category "other_infrastructure":
+
              precision    recall  f1-score   support
 
           0       0.96      0.98      0.97      6208
@@ -360,6 +384,7 @@ Classification result for category "other_infrastructure":
 avg / total       0.93      0.94      0.93      6507
 
 Classification result for category "weather_related":
+
              precision    recall  f1-score   support
 
           0       0.92      0.90      0.91      4657
@@ -368,6 +393,7 @@ Classification result for category "weather_related":
 avg / total       0.87      0.87      0.87      6507
 
 Classification result for category "floods":
+
              precision    recall  f1-score   support
 
           0       0.97      0.98      0.97      5975
@@ -376,6 +402,7 @@ Classification result for category "floods":
 avg / total       0.95      0.95      0.95      6507
 
 Classification result for category "storm":
+
              precision    recall  f1-score   support
 
           0       0.98      0.96      0.97      5880
@@ -384,6 +411,7 @@ Classification result for category "storm":
 avg / total       0.95      0.94      0.95      6507
 
 Classification result for category "fire":
+
              precision    recall  f1-score   support
 
           0       0.99      1.00      0.99      6448
@@ -392,6 +420,7 @@ Classification result for category "fire":
 avg / total       0.99      0.99      0.99      6507
 
 Classification result for category "earthquake":
+
              precision    recall  f1-score   support
 
           0       0.98      0.98      0.98      5853
@@ -400,6 +429,7 @@ Classification result for category "earthquake":
 avg / total       0.97      0.97      0.97      6507
 
 Classification result for category "cold":
+
              precision    recall  f1-score   support
 
           0       0.99      0.99      0.99      6369
@@ -408,6 +438,7 @@ Classification result for category "cold":
 avg / total       0.98      0.98      0.98      6507
 
 Classification result for category "other_weather":
+
              precision    recall  f1-score   support
 
           0       0.96      0.98      0.97      6162
@@ -416,6 +447,7 @@ Classification result for category "other_weather":
 avg / total       0.93      0.94      0.94      6507
 
 Classification result for category "direct_report":
+
              precision    recall  f1-score   support
 
           0       0.91      0.88      0.90      5216
